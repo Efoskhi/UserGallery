@@ -1,11 +1,16 @@
 import React from "react";
 import Globals from "../global/Globals";
+import { useDispatch, useSelector } from "react-redux";
+import { allUsers } from "../redux/actions";
+
 
 const useDashboard = () => {
-    const [users, setUsers] = React.useState([]);
     const [noMoreData, setNoMoreData] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
     const page = React.useRef(1);
+    const dispatch = useDispatch();
+    const { users } = useSelector((state) => state.users)
+
 
     React.useEffect(() => {
         getUsers();
@@ -20,7 +25,9 @@ const useDashboard = () => {
         setIsLoading(false)
 
         if(response.data?.length > 0){
-            isLoadMore ? setUsers(prev => [...prev, ...response.data]) : setUsers(response.data);
+            const data = isLoadMore ? [...users, ...response.data] : response.data;
+            dispatch(allUsers(data))
+
         }
         else{
             isLoadMore ? setNoMoreData(true) : null;

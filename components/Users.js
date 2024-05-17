@@ -74,5 +74,20 @@ export const styles  = StyleSheet.create({
         contentFit : "contain",
         borderRadius : 10,
 
+    },
+    button : {
+        backgroundColor : "#A10F7E",
+        padding : 5,
+        borderRadius : 5,
+        width: 80,
+        alignSelf : "flex-end",
+        marginRight : 30,
+        marginTop : 5
+    },
+    buttonText : {
+        color : "#fff",
+        fontFamily : "Poppins_500Medium",
+        textAlign : "center",
+        fontSize : 11
     }
 })

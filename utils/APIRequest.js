@@ -5,7 +5,7 @@ const APIRequest = async (request) => {
     try{
         await fetch(url, {
             method,
-            body : method === "POST" ? JSON.stringify(data) : undefined,
+            body : method === "POST" || method === "PUT" ? JSON.stringify(data) : undefined,
             headers : {
                 "Content-Type" : "application/json"
             }

@@ -4,9 +4,11 @@ import renderUsers from "../components/Users";
 import useDashboard from "../hooks/Dashboard";
 import Navbar from '../components/Navbar';
 
+
 const Dashboard = () => {
     const { users, handleEndReached, noMoreData, isLoading } = useDashboard();
     const keyExtractor = (item) => item.id.toString();
+
 
     const Footer = () => {
         return !noMoreData && <ActivityIndicator/>
